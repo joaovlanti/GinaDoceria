@@ -1,0 +1,159 @@
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="icon" type="image/ico" href="./favicon.ico">
+    <title>Menu - Gina Doceria</title>
+    <style>
+      body {
+        background: #CCD6EF;
+        font-family: 'Gravitas One', cursive;
+      }
+      header{
+        width: 250px;
+        height: 250px;
+        display: block;
+        margin: 0 auto;
+      }
+      #logo{
+        height: -webkit-fill-available;
+      }
+      p#txtMenu {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 45px;
+        color: black;
+        text-align: center;
+      }
+      .imgItem{
+        float: left;
+        margin-right: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 10px;
+        height: 200px;
+      }
+      .itemMenu{
+        min-height: 230px;
+        background-color: #fff6b8;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px;
+        display: inline-block;
+      }
+      .btnMais, .btnMenos, .qtd, #btnPronto{
+        background-color: white;
+        text-align: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 10px;
+        line-height: 50px;
+        margin-right: 5px;
+      }
+      .btnMais, .btnMenos, .qtd{
+        width: 50px;
+        height: 50px;
+        float: left;
+      }
+      .btnMais, .btnMenos{
+        font-size: 25px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .qtd{
+          cursor: none;
+      }
+      #btnPronto{          
+        font-size: 15px;
+        border-width: 0px;
+        font-family: 'Gravitas One', cursive;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <a href="./index.html"><img src="./logo.png" alt="Logo" id="logo"></a>
+    </header>
+    <p id="txtMenu">Menu!</p>
+    <div id="menu">
+        <div class="itemMenu">
+            <img src="./cookies.jpg" alt="Cookies!" class="imgItem">
+            <p style="font-size: 25px; word-break: break-word;">Cookies recheados com Nutella!</p>
+            <p>Nosso cookies caseiros, clássicos de massa simples com gotas de chocolate e recheado com muuuuita nutella, são assados todas às quintas-feiras. Feitos com muito amor e carinho, é impossível comer somente um!</p>
+            <div class="btnMais" onclick="addCookie()">+</div><div class="qtd" id="ckQtd">0</div><div class="btnMenos" onclick="rmvCookie()">-</div>
+        </div>
+        <div class="itemMenu">
+            <img src="./btscorch.jpg" alt="Butter Scorch!" class="imgItem">
+            <p style="font-size: 25px; word-break: break-word;">Torta de Manteiga Escocesa!</p>
+            <p>Agora você também pode comer essa delícia do desenho do Pica-Pau! A combinação da base de massa amanteigada, caramelo e chocolate são irresistíveis e deixam a torta tão saborosa quanto parecem no desenho!</p>
+            <div class="btnMais" onclick="addBts()">+</div><div class="qtd" id="btsQtd">0</div><div class="btnMenos" onclick="rmvBts()">-</div>
+        </div>
+        <div style="text-align: center;">
+        <input type="button" value="Fazer pedido!" id="btnPronto" onclick="fazPedido()">
+        </div>
+    </div>
+    <script type="text/javascript">
+        function addCookie(){
+            var qtdAt = parseInt($("#ckQtd").text());
+            qtdAt++;
+            $("#ckQtd").text(qtdAt);
+        }
+        function rmvCookie(){
+            var qtdAt = parseInt($("#ckQtd").text());
+            if(qtdAt>0){
+                qtdAt--;
+                $("#ckQtd").text(qtdAt);
+            }
+        }
+        function addBts(){
+            var qtdAt = parseInt($("#btsQtd").text());
+            qtdAt++;
+            $("#btsQtd").text(qtdAt);
+        }
+        function rmvBts(){
+            var qtdAt = parseInt($("#btsQtd").text());
+            if(qtdAt>0){
+                qtdAt--;
+                $("#btsQtd").text(qtdAt);
+            }
+        }
+        function fazPedido(){
+            var qtdCk = parseInt($("#ckQtd").text());
+            var qtdBts = parseInt($("#btsQtd").text());
+            if (qtdCk == 0 && qtdBts == 0){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Opa!',
+                    text: 'Parece que você não selecionou nenhum item!'
+                });
+            }
+            else{
+                var msg;
+                if(qtdCk>0){
+                    if(qtdCk>1){
+                        msg = qtdCk.toString() + "%20Cookies%0A";
+                    }
+                    else{
+                        msg = qtdCk.toString() + "%20Cookie%0A";
+                    }
+                }
+                if(qtdBts>0){
+                    if(qtdCk>1){
+                        msg += qtdBts.toString() + "%20Tortas de Manteiga Escocessa%0A";
+                    }
+                    else{
+                        msg += qtdBts.toString() + "%20Torta de Manteiga Escocessa%0A";
+                    }
+                }
+                window.open("https://api.whatsapp.com/send?phone=5519988866314&text=Olá!%0AGostaria%20de%20pedir:%0A"+msg);
+            }
+        }
+    </script>
+  </body>
+</html>
