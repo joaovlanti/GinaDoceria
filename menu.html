@@ -12,6 +12,7 @@
     <link rel="icon" type="image/ico" href="./imagens/favicon.ico">
     <title>Menu - Gina Doceria</title>
     <style>
+      <!--ESTILIZAÇÃO TEXTO "Menu!"-->
       p#txtMenu {
         margin-top: 5px;
         margin-bottom: 5px;
@@ -20,6 +21,7 @@
         color: black;
         text-align: center;
       }
+      <!--ESTILIZAÇÃO IMAGENS DE PRODUTOS-->
       .imgItem{
         float: left;
         margin-right: 10px;
@@ -27,6 +29,7 @@
         border-radius: 10px;
         height: 200px;
       }
+      <!--ESTILIZAÇÃO CARD DOS ITENS-->
       .itemMenu{
         min-height: 230px;
         background-color: #fff6b8;
@@ -35,6 +38,7 @@
         margin: 10px;
         display: inline-block;
       }
+      <!--ESTILIZAÇÃO GERAL DOS BOTÕES DA PÁGINA-->
       .btnMais, .btnMenos, .qtd, #btnPronto{
         background-color: white;
         text-align: center;
@@ -43,19 +47,23 @@
         line-height: 50px;
         margin-right: 5px;
       }
+      <!--ESTILZIAÇÃO DOS CAMPOS DE QTD-->
       .btnMais, .btnMenos, .qtd{
         width: 50px;
         height: 50px;
         float: left;
       }
+      <!--ESTILIZAÇÃO BOTÕES DE AÇÃO (ADD, REMV)-->
       .btnMais, .btnMenos{
         font-size: 25px;
         font-weight: 600;
         cursor: pointer;
       }
+      <!--ESTILIZAÇÃO DO CAMPO DE QTD-->
       .qtd{
           cursor: none;
       }
+      <!--ESTILIZAÇÃO DO BOTÃO P/ FINALIZAR PEDIDO-->
       #btnPronto{          
         font-size: 15px;
         border-width: 0px;
@@ -70,18 +78,23 @@
     </header>
     <p id="txtMenu">Menu!</p>
     <div id="menu">
+      <!--ITEM 1 - COOKIE-->
         <div class="itemMenu">
             <img src="./imagens/cookies.jpg" alt="Cookies!" class="imgItem">
             <p style="font-size: 25px; word-break: break-word;">Cookies recheados com Nutella!</p>
             <p>Nosso cookies caseiros, clássicos de massa simples com gotas de chocolate e recheado com muuuuita nutella, são assados todas às quintas-feiras. Feitos com muito amor e carinho, é impossível comer somente um!</p>
+            <!--BOTÕES-->
             <div class="btnMais" onclick="addCookie()">+</div><div class="qtd" id="ckQtd">0</div><div class="btnMenos" onclick="rmvCookie()">-</div>
         </div>
+      <!--ITEM 2 - TORTA ESC-->
         <div class="itemMenu">
             <img src="./imagens/btscorch.jpg" alt="Butter Scorch!" class="imgItem">
             <p style="font-size: 25px; word-break: break-word;">Torta de Manteiga Escocesa!</p>
             <p>Agora você também pode comer essa delícia do desenho do Pica-Pau! A combinação da base de massa amanteigada, caramelo e chocolate são irresistíveis e deixam a torta tão saborosa quanto parecem no desenho!</p>
+            <!--BOTÕES-->
             <div class="btnMais" onclick="addBts()">+</div><div class="qtd" id="btsQtd">0</div><div class="btnMenos" onclick="rmvBts()">-</div>
         </div>
+        <!--BTN QTD-->
         <div style="text-align: center;">
         <input type="button" value="Fazer pedido!" id="btnPronto" onclick="fazPedido()">
         </div>
