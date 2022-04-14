@@ -1,13 +1,13 @@
-  body {
+  body { /*ESTILIZAÇÃO GERAL (FONTE, BG COR)*/
     background: #CCD6EF;
     font-family: 'Gravitas One', cursive;
   }
-  header{
+  header{ /*ESTILIZAÇÃO CABEÇALHO DA PÁGINA*/
     width: 250px;
     height: 250px;
     display: block;
     margin: 0 auto;
   }
-  #logo{
+  #logo{ /*ESTILIZAÇÃO DO LOGO*/
     height: -webkit-fill-available;
   }
